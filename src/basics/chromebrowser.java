@@ -14,6 +14,7 @@ public class chromebrowser {
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.facebook.com"); // URL in the browser
 		driver.findElement(By.id("email")).sendKeys("foo@bar.com");
+		driver.findElement(By.name("pass")).sendKeys("password12345");
 
 		//		System.out.println(driver.getPageSource());
 //		driver.close();
