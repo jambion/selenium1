@@ -12,9 +12,11 @@ public class chromebrowser {
 		//chromedriver.exe
 		System.setProperty("webdriver.chrome.driver", "C://chromedriver_win32//chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
+		
 		driver.get("http://www.facebook.com"); // URL in the browser
 		driver.findElement(By.id("email")).sendKeys("foo@bar.com");
 		driver.findElement(By.name("pass")).sendKeys("password12345");
+		driver.findElement(By.linkText("Forgot account?")).click();
 
 		//		System.out.println(driver.getPageSource());
 //		driver.close();
