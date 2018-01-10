@@ -14,9 +14,11 @@ public class chromebrowser {
 		WebDriver driver = new ChromeDriver();
 		
 		driver.get("http://www.facebook.com"); // URL in the browser
-		driver.findElement(By.id("email")).sendKeys("foo@bar.com");
-		driver.findElement(By.name("pass")).sendKeys("password12345");
-		driver.findElement(By.linkText("Forgot account?")).click();
+		driver.findElement(By.xpath("//*[@id=\'email\']")).sendKeys("YoGabbaGabba");
+		driver.findElement(By.cssSelector("input#email.inputtext")).sendKeys("LITT");
+//		driver.findElement(By.className("inputtext")).sendKeys("foo@bar.com");
+//		driver.findElement(By.name("pass")).sendKeys("password12345");
+//		driver.findElement(By.linkText("Forgot account?")).click();
 
 		//		System.out.println(driver.getPageSource());
 //		driver.close();
