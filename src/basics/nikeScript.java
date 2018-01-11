@@ -15,7 +15,7 @@ public class nikeScript {
 		
 		Thread.sleep(5000);
 		
-		driver.findElement(By.xpath("//*[text()='NikeLab Veil Gyakusou']")).click();
+		//driver.findElement(By.xpath("//*[text()='NikeLab Veil Gyakusou']")).click();
 		
 		//<input type="radio" id="skuAndSize__20823134:M 10 / W 11.5" name="skuAndSize" value="20823134:M 10 / W 11.5" aria-label="M 10 / W 11.5">
 //		driver.findElement(By.xpath("//input[@id='skuAndSize__20823134:M 10 / W 11.5']")).click();
@@ -25,7 +25,7 @@ public class nikeScript {
 		////*[@id="exp-gridwall-wrapper"]/div[2]/div[2]/div[2]/div[1]/div[1]/div[7]/div/div/div[1]/div/a/img
 		// <p class="product-display-name nsg-font-family--base edf-font-size--regular nsg-text--dark-grey">NikeLab Free RN Commuter 2017 Gyakusou</p>
 		
-		/* Adding size 9.5 Free RN Commuter to cart from NikeLab page
+		// Adding size 9.5 Free RN Commuter to cart from NikeLab page
 		driver.findElement(By.xpath("//*[@id=\'exp-gridwall-wrapper\']/div[2]/div[2]/div[2]/div[1]/div[1]/div[7]/div/div/div[1]/div/a/img")).click();
 		Thread.sleep(5000);
 
@@ -35,7 +35,7 @@ public class nikeScript {
 		// //*[@id="buyTools"]/div[2]/button[1]
 		
 		driver.findElement(By.xpath("//*[@id=\'buyTools\']/div[2]/button[1]")).click();
-		*/
+		
 	}
 
 }
