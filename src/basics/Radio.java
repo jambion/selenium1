@@ -16,6 +16,13 @@ public class Radio {
 		int count = driver.findElements(By.cssSelector("input[name='group1']")).size();
 		System.out.println(count);
 		
+		for(int i = 0; i < 22; i++) {
+			int num = i % 3;
+			System.out.println(num);
+			driver.findElements(By.cssSelector("input[name='group1']")).get(num).click();
+		}
+		
+		
 	}
 
 }
