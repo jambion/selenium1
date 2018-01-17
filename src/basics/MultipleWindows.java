@@ -27,6 +27,7 @@ public class MultipleWindows {
 		System.out.println(driver.getTitle());
 		driver.switchTo().window(parentid);
 		System.out.println(driver.getTitle());
+		
 	}
 
 }
