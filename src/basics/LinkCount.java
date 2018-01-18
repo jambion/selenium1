@@ -39,7 +39,12 @@ public class LinkCount {
 		String afterClick = driver.getTitle();
 		System.out.println("Title after click: " + afterClick);
 		if(beforeClick != afterClick) {
-			System.out.println("PASS");
+			if(afterClick.contains("Sitemap")) {
+				System.out.println("PASS");
+			}
+			
+		} else {
+			System.out.println("FAIL");
 		}
 	}
 
