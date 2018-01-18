@@ -22,7 +22,13 @@ public class travelCalendar {
 		int calendarSize = dates.size();
 		System.out.println(calendarSize);
 		
-		
+		for(int i = 0; i < calendarSize; i++) {
+			String day = dates.get(i).getAttribute("textContent");
+			if(day.equalsIgnoreCase("23")) {
+				dates.get(i).click();
+				break;
+			}
+		}
 		
 	}
 
