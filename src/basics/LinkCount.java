@@ -32,6 +32,9 @@ public class LinkCount {
 		for(int i = 0; i < linkCount; i++) {
 			System.out.println(secondFooterColumn.findElements(By.tagName("a")).get(i).getAttribute("textContent"));
 		}
+		
+		// Click last link of the footer's second column (Window size must be increased to reveal link)
+		driver.findElement(By.cssSelector("div[id='gf-BIG'] table tbody tr td:nth-child(2) ul li:last-child a")).click();
 	}
 
 }
