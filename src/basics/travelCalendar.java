@@ -17,6 +17,15 @@ public class travelCalendar {
 		
 		driver.get("https://www.expedia.com/");
 		driver.findElement(By.id("package-departing-hp-package")).click();
+		String firstMonth = driver.findElement(By.cssSelector("div[class='datepicker-cal-month'] table caption")).getAttribute("textContent");
+		System.out.println(firstMonth);
+		
+		while(!firstMonth.equals("Jul 2018")) {
+			driver.findElement(By.cssSelector("button[type='button'][class='datepicker-paging datepicker-next btn-paging btn-secondary next']")).click();
+			firstMonth = driver.findElement(By.cssSelector("div[class='datepicker-cal-month'] table caption")).getAttribute("textContent");
+			System.out.println(firstMonth);
+
+		}
 		
 		List<WebElement> dates = driver.findElements(By.className("datepicker-cal-date"));
 		int calendarSize = dates.size();
@@ -24,7 +33,8 @@ public class travelCalendar {
 		
 		for(int i = 0; i < calendarSize; i++) {
 			String day = dates.get(i).getAttribute("textContent");
-			if(day.equalsIgnoreCase("23")) {
+			System.out.println(day);
+			if(day.equalsIgnoreCase("7")) {
 				dates.get(i).click();
 				break;
 			}
