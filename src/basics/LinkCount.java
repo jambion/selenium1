@@ -23,6 +23,11 @@ public class LinkCount {
 		WebElement footer = driver.findElement(By.id("hlGlobalFooter"));
 		System.out.println("Total links in the footer section: ");
 		System.out.println(footer.findElements(By.tagName("a")).size());
+	
+		// Get total number of links for the second column of the footer section
+		
+		WebElement secondFooterColumn = driver.findElement(By.cssSelector("div[id='gf-BIG'] table tbody tr td:nth-child(2)"));
+		System.out.println(secondFooterColumn.findElements(By.tagName("a")).size());
 	}
 
 }
