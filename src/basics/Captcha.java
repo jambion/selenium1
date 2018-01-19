@@ -12,26 +12,42 @@ public class Captcha {
 		WebDriver driver = new ChromeDriver();
 		
 		driver.get("https://www.google.com/recaptcha/api2/demo");
-		switchToFrame(driver);
-		driver.findElement(By.className("recaptcha-checkbox-checkmark")).click();
+		int captchaNumber = findFrameNumber(driver, By.cssSelector("*[id='recaptcha-anchor'] div:nth-child(5)"));
+		
+		driver.switchTo().frame(captchaNumber);
+		
+		driver.findElement(By.cssSelector("*[id='recaptcha-anchor'] div:nth-child(5)")).click();
+		
+		driver.switchTo().defaultContent(); // Switch back to default landing page. Don't use if you are traversing to child frame(s)
+		int verifyNumber = findFrameNumber(driver, By.cssSelector("*[id='recaptcha-anchor'] div:nth-child(5)"));
+
+		
 	}
 	
-	// Method to handle frames
-	public void switchToFrame(WebDriver driver) {
-		int frameCount = driver.findElements(By.tagName("iframe")).size();
+	// Method to find the frame number
+	public static int findFrameNumber(WebDriver driver, By by) {
+		int i;
+		int frameCount = driver.findElements(By.tagName("iframe")).size(); // Get count of frames
+		
 		System.out.println(frameCount);
 		
-		for(int i = 0; i < frameCount; i++) {
+		// Loop through all the frames and switch to that frame 
+		// If the captcha element is found, break out of the loop and "int i" will be the selected frame
+		for(i = 0; i < frameCount; i++) {
 			driver.switchTo().frame(i);
 			
-			int count = driver.findElements(By.cssSelector("*[id='recaptcha-anchor'] div:nth-child(5)")).size();
+			int count = driver.findElements(by).size();
 			
 			if(count > 0) {
-				driver.findElement(By.cssSelector("*[id='recaptcha-anchor'] div:nth-child(5)")).click();
+				break;
 			} else {
 				System.out.println("Continue looping");
 			}
 		} 
+		
+		driver.switchTo().defaultContent(); // Go to the default landing page
+		
+		return i;
 
 	}
 	
