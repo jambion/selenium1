@@ -17,14 +17,24 @@ public class Captcha {
 	}
 	
 	// Method to handle frames
-	public static void switchToFrame(WebDriver driver) {
+	public void switchToFrame(WebDriver driver) {
 		int frameCount = driver.findElements(By.tagName("iframe")).size();
 		System.out.println(frameCount);
+		
 		for(int i = 0; i < frameCount; i++) {
 			driver.switchTo().frame(i);
-		}
+			
+			int count = driver.findElements(By.cssSelector("*[id='recaptcha-anchor'] div:nth-child(5)")).size();
+			
+			if(count > 0) {
+				driver.findElement(By.cssSelector("*[id='recaptcha-anchor'] div:nth-child(5)")).click();
+			} else {
+				System.out.println("Continue looping");
+			}
+		} 
 
 	}
 	
 
 }
+ 
