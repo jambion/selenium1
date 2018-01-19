@@ -13,15 +13,17 @@ public class Captcha {
 		
 		driver.get("https://www.google.com/recaptcha/api2/demo");
 		switchToFrame(driver);
-		
+		driver.findElement(By.className("recaptcha-checkbox-checkmark")).click();
 	}
 	
 	// Method to handle frames
 	public static void switchToFrame(WebDriver driver) {
-		int framecount = driver.findElements(By.tagName("iframe")).size();
-		System.out.println(framecount);
-		for(int i = 0; i )
-//		driver.switchTo().frame(arg0)
+		int frameCount = driver.findElements(By.tagName("iframe")).size();
+		System.out.println(frameCount);
+		for(int i = 0; i < frameCount; i++) {
+			driver.switchTo().frame(i);
+		}
+
 	}
 	
 
